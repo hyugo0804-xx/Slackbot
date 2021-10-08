@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/inquiry',[App\Http\Controllers\InquiryController::class, 'show'])->name('inquiry');
+Route::post('/inquiry/confirm',[App\Http\Controllers\InquiryController::class, 'confirm']);
+Route::post('/inquiry/finish',[App\Http\Controllers\InquiryController::class, 'finish']);
