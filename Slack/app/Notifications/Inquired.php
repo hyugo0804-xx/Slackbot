@@ -32,9 +32,18 @@ class Inquired extends Notification
     {
         return (new SlackMessage)
                 ->success()
-                ->content(sprintf("%s<%s>さんから問い合わせがありました。", $inquiry->name, $inquiry->email))
+                ->content(sprintf("%s%sさんから問い合わせがありました。内容はこちら↓", $inquiry->last_name,$inquiry->first_name))
                 ->attachment(function ($attachment) use ($inquiry) {
-                    $attachment->content($inquiry->message);
+                    $attachment->title('お問い合わせ内容')
+                    ->fields([
+                        '姓' => $inquiry->last_name,
+                        'かな' => $inquiry->last_name_kana,
+                        '名' => $inquiry->first_name,
+                        'よみ' => $inquiry->first_name_kana,
+                        '電話番号' => $inquiry->phone,
+                        'メールアドレス' => $inquiry->email,
+                        'メッセージ' => $inquiry->contact_detail,
+                    ]);
                 });
     }
 }

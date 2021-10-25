@@ -7,10 +7,16 @@ use Illuminate\Notifications\Notifiable;
 class Inquiry
 {
     use Notifiable;
-
-    private string $name;
+    
+    
+    private string $last_name;
+    private string $first_name;
+    private string $last_name_kana;
+    private string $first_name_kana;
     private string $email;
-    private string $message;
+    private string $phone;
+    private string $contact_detail;
+
 
     /**
      * 
@@ -39,12 +45,12 @@ class Inquiry
      * @param string $name
      * @return mixed
      */
-    public function __get(string $name)
+    public function __get(string $last_name)
     {
-        if (!property_exists($this, $name)) {
-            throw new \Exception("Not found '${name}'.");
+        if (!property_exists($this, $last_name)) {
+            throw new \Exception("Not found '${last_name}'.");
         }
 
-        return $this->$name;
+        return $this->$last_name;
     }
 }
