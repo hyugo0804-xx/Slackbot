@@ -25,9 +25,17 @@ class InquiryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'      => 'required|max:20',
             'email'     => 'required|email:rfc',
-            'message'   => 'required|max:1024',
+            'contact_detail'   => 'required|max:1024',
+            'last_name' => 'required|max:20',
+            'first_name' => 'required|max:20',
+            'last_name_kana' => 'required|max:20',
+            'first_name_kana' => 'required|max:20',
+            'phone' => 'required | numeric | digits_between:8,11',
+            // 'hoge1' => 
+            // 'hoge2' =>
+            // 'hoge3' => 
+            
         ];
     }
 
@@ -53,9 +61,13 @@ class InquiryRequest extends FormRequest
     public function attributes()
     {
         return [
-            'name'      => 'お名前',
+            'last_name'      => '苗字',
+            'first_name'      => 'お名前',
+            'last_name_kana'      => 'ふりがな',
+            'first_name_kana'      => 'ふりがな',
+            'phone'      => '電話番号',
             'email'     => 'メールアドレス',
-            'message'   => 'メッセージ',
+            'contact_detail'   => 'メッセージ',
         ];
     }
 
