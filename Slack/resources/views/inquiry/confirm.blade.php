@@ -8,15 +8,31 @@
     <table class="table-form">
       <tr>
         <th>お名前</th>
-        <td>{{ $name }}</td>
+        <td>{{ $last_name }}</td>
+      </tr>
+      <tr>
+        <th>お名前</th>
+        <td>{{ $first_name }}</td>
+      </tr>
+      <tr>
+        <th>お名前</th>
+        <td>{{ $last_name_kana }}</td>
+      </tr>
+      <tr>
+        <th>お名前</th>
+        <td>{{ $first_name_kana }}</td>
       </tr>
       <tr>
         <th>メールアドレス</th>
         <td>{{ $email }}</td>
       </tr>
       <tr>
+        <th>電話番号</th>
+        <td>{{ $phone}}</td>
+      </tr>
+      <tr>
         <th>メッセージ</th>
-        <td>{{ $message }}</td>
+        <td>{{ $contact_detail }}</td>
       </tr>
     </table>
     <div class="button-area">

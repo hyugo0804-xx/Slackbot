@@ -20,3 +20,6 @@ Route::get('/', function () {
 Route::get('/inquiry',[App\Http\Controllers\InquiryController::class, 'show'])->name('inquiry');
 Route::post('/inquiry/confirm',[App\Http\Controllers\InquiryController::class, 'confirm']);
 Route::post('/inquiry/finish',[App\Http\Controllers\InquiryController::class, 'finish']);
+
+Route::get('honeypot', 'HoneypotController@create');
+Route::post('honeypot', 'HoneypotController@store')->middleware(\Spatie\Honeypot\ProtectAgainstSpam::class);
